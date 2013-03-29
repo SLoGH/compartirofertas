@@ -1,0 +1,30 @@
+/**
+ * WP User Frontend Global CSS
+ *
+ * @author Andrew Bruin (professor99) 
+ * @package WP User Frontend
+ * @version 1.1.0-fork-2RRR-4.4
+ */
+ 
+/*
+== Changelog ==
+
+= 1.1-fork-2RRR-4.4 professor99 =
+* Uses global css from old wpuf.css
+*/
+
+/* Only add CSS to be used globally for all posts and pages */
+
+/* Global CSS */
+/* ----------- */
+
+.wpuf-attachments > li {
+    margin: 0!important;
+    list-style: none outside none;
+    padding: 5px 0;
+}
+
+.wpuf-attachments > li img {
+    margin-right: 15px;
+}
+

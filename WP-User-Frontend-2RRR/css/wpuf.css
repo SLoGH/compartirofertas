@@ -1,0 +1,740 @@
+/**
+ * WP User Frontend Main Css
+ *
+ * @author Tareq Hasan 
+ * @package WP User Frontend
+ * @version 1.1.0-fork-2RRR-4.4
+ */
+ 
+/*
+== Changelog ==
+
+= 1.1-fork-2RRR-4.4 professor99 =
+* Add CSS for post attachment thumbnails
+* Changed class category-wrap to id wpuf-category
+* Indented categories
+* Deleted unused wp-new-post-desc-wrap
+* Changed CSS id wpuf-post-area to wpuf
+* Added wpuf prefix to some selectors to harden style
+* Global CSS moved to wpuf-global.css
+ 
+= 1.1-fork-2RRR-3.0 professor99 =
+* Delete button added
+* Added excerpt
+* Added description-left
+* Adjusted button margins
+* Added hover/active css for plupload
+* Added common background/focus for input/textarea/select fields
+* Used #wpuf to tighten CSS
+* Styled for IE7,IE8,Firefox16
+* Styled for Wordpress 2010/2011 themes
+* Rearranged and commented for readability
+* Fixed Featured Image CSS for IE7
+* Fixed Attachment CSS for IE7
+
+= 1.1-fork-2RRR-2.0 professor99 =
+* Added wpuf prefix to some class names
+* Set list style
+* Added "Upload Image" button.
+* Re-styled buttons.
+* Re-styled attachments.
+
+= 1.1-fork-2RRR-1.0 professor99 =
+* Plain editor css added.
+* Close button added
+* Add info field css and updated success and error classes
+* Editors use max availiable width.
+* Centered submit button.
+*/
+
+/* General CSS */
+/* ----------- */
+
+.clear{
+    clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+span.required {
+    color: red;
+}
+
+.wpuf-invalid {
+    border: 1px solid #FF7272 !important;
+}
+
+#wpuf-info-msg {
+    height: 32px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.wpuf-success {
+    margin: 0 10px 10px 10px;
+    padding: 3px 10px;
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    border: 1px solid #BCDF7D;
+    margin-bottom: 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-shadow: 0 1px 0 #FFFFFF;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.wpuf-error {
+    margin: 0 10px 10px 10px;
+    padding: 3px 10px;
+    color: #D8000C;
+    background-color: #FFBABA;
+    border: solid 1px #dd3c10;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    text-shadow: 0 1px 0 #FFFFFF;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.wpuf-info {
+    background-color: #fef5be;
+    border: 2px solid #fdd425;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 0 10px 0;
+    font-size: 13px;
+}
+
+/* AddPost/EditPost/Profile/EditUser Forms */
+/* --------------------------------------- */
+
+/* General layout */
+
+#wpuf table{
+    margin: 0;
+}
+
+#wpuf label {
+    float: left;
+    font-weight: bold;
+    height: 20px;
+    margin: 0;
+    min-width: 130px;
+    padding: 0 10px 0 0;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#wpuf ul{
+	margin: 0;
+}
+
+#wpuf ul li{
+    list-style: none outside none;
+    background: none;
+    margin: 10px 0;
+    padding: 0;
+}
+
+ul li#wpuf-submit-li{
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+#wpuf .wpuf-post-form{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Input/select/textarea fields */
+
+#wpuf input, 
+#wpuf select, 
+#wpuf textarea  {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+    color: #333333;
+}
+
+#wpuf input, 
+#wpuf select {
+    margin: 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#wpuf input[type=checkbox]{
+    margin: 0 5px 0 0;
+    padding: 0;
+    border: none;
+}
+
+#wpuf input[type=text], 
+#wpuf select, 
+#wpuf textarea  {
+    background: #F9F9F9;
+}
+
+#wpuf input:focus, 
+#wpuf select:focus, 
+#wpuf textarea:focus {
+    background: #F2F2F2;
+}
+
+#wpuf input[type=text]{
+    width: 50%;
+}
+
+#wpuf .timestamp-wrap  {
+    font-size: 13px;
+    float: left;
+}
+
+#wpuf .timestamp-wrap input[type=text] {
+    width: 40px !important;
+}
+
+#wpuf .timestamp-wrap input[type=checkbox] {
+    margin-left: 10px;
+}
+
+#wpuf textarea {
+    margin: 5px 0 0 0;
+    padding: 5px 10px;
+    width: 100%;
+    resize: vertical;
+}
+
+textarea#wpuf-excerpt{
+    resize: none;
+}
+
+#wpuf .wpuf-textarea-container{
+    padding-right: 22px;
+}
+
+/* Buttons & Links (NB wpuf-submit used by wpuf-editprofile.php also */
+
+#wpuf .wpuf-post-form input[type=submit],
+#wpuf .wpuf-submit,
+#wpuf .wpuf-button {
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: #444!important;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    text-shadow: 0 1px 0 #DDDDDD;
+    background: #eeeeee; /* old browsers */
+    background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* webkit */
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-family: "Helvetica Neue",Arial,Helvetica,"Nimbus Sans L",sans-serif;
+    font-size: 15px!important;
+    line-height: 18px!important;
+}
+
+#wpuf .wpuf-post-form input[type=submit]:active,
+#wpuf .wpuf-submit:active, 
+#wpuf .wpuf-button:active, 
+#wpuf .wpuf-attachment-upload-pickfiles-active, 
+#wpuf .wpuf-ft-upload-pickfiles-active{
+    background: #ddd;
+}
+
+#wpuf .wpuf-post-form input[type=submit]:hover, 
+#wpuf .wpuf-submit:hover, 
+#wpuf .wpuf-button:hover, 
+#wpuf .wpuf-attachment-upload-pickfiles-hover, 
+#wpuf .wpuf-ft-upload-pickfiles-hover{
+    background: #ddd; /* old browsers */
+    background: -moz-linear-gradient(top, #cccccc 0%, #eeeeee 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#eeeeee)); /* webkit */
+}
+
+
+#wpuf .wpuf-post-form a{
+    color: #1982D1;
+    text-decoration: none;
+}
+
+#wpuf .wpuf-post-form  a:focus, 
+#wpuf .wpuf-post-form  a:active, 
+#wpuf .wpuf-post-form a:hover{
+    text-decoration: underline;
+}
+
+#wpuf a.wpuf-button{
+    text-decoration: none;
+}
+
+#wpuf a.wpuf-button:link,
+#wpuf a.wpuf-button:visited,
+#wpuf a.wpuf-button:hover,
+#wpuf a.wpuf-button:active{
+    color: #444444;
+    text-decoration: none;	
+}
+
+#wpuf-button-delete{
+    text-align: center;
+}
+
+#wpuf-button-close{
+    text-align: center;
+}
+
+/* Help Description CSS */
+
+#wpuf p.description {
+    color: #868686;
+    margin: 0;
+    padding: 3px 0 3px 140px;
+    font-size: 12px;
+}
+
+#wpuf p.description-left {
+    color: #868686;
+    margin: 0;
+    padding: 3px 0 3px 0px;
+    font-size: 12px;
+}
+
+/* Editor */
+
+#wpuf .wpuf-editor-plain {
+    margin-top: 5px!important;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* wp-wpuf-post-content-wrap created by TinyMCE */
+#wp-wpuf-post-content-wrap tr td {
+    padding: 0;
+}
+
+#wpuf  #editorcontainer tr td,
+#wpuf  #editorcontainer table {
+    padding: 0;
+    margin: 0;
+}
+
+/* Featured Image CSS */
+
+ul li#wpuf-ft-upload-li{
+    margin-bottom: 10px;
+}
+
+#wpuf-ft-upload-container {
+    position: relative; 
+    overflow: hidden;	
+}
+
+#wpuf-ft-upload-filelist img {
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 10px 10px 0;
+    float: left;
+}
+
+#wpuf-ft-upload-filelist .button {
+    padding: 3px 8px;
+    border: 1px solid #ccc;
+    background: #E3E3E3;
+    color: #333;
+    font-size: 12px;
+    margin: 0 0 0 15px;
+    border-radius: 5px;
+    vertical-align: top;
+    line-height: 25px;
+}
+
+#wpuf-ft-upload-pickfiles {
+    padding: 3px 8px;
+    margin-bottom: 10px;
+}
+
+/* Attachment CSS */
+
+#wpuf .wpuf-attachments-label {
+    color: #888888;
+    font-size: 12px;
+    font-weight: bold;
+    height: 20px;
+    margin: 0;
+    padding: 10px 0;
+}
+
+#wpuf ul.wpuf-attachments{ 
+    list-style: square inside none;
+    margin: 0;
+}
+
+ul li#wpuf-attachment-upload-li{
+    margin-bottom: 15px;
+}
+
+#wpuf-attachment-upload-filelist .wpuf-attachment {
+    display: block;
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#wpuf-attachment-upload-filelist .wpuf-attachment .attachment-name {
+    font-size: 12px;
+    margin: 0 0 0 15px;
+}
+
+#wpuf-attachment-upload-filelist .wpuf-attachment .button {
+    padding: 3px 8px;
+    border: 1px solid #ccc;
+    background: #E3E3E3;
+    color: #333;
+    font-size: 12px;
+    margin: 0 0 0 15px;
+    border-radius: 5px;
+}
+
+#wpuf-attachment-upload-filelist .handle {
+    background: url('../images/arrow-move.png') no-repeat;
+    cursor: move;
+    display: inline-block;
+    height: 16px;
+    margin: 5px 10px 0 0;
+    padding: 0;
+    text-indent: -9999px;
+    width: 16px;
+    line-height: 0px; 
+    font-size: 0px;
+    vertical-align: middle;
+    float: left;
+}
+
+#wpuf-attachment-upload-pickfiles {
+    padding: 3px 8px;
+}
+
+/* Categories */
+
+#wpuf .wpuf-post-form .childCategory {
+    padding-top: 5px;
+}
+
+#wpuf-category {
+    position: relative;
+}
+
+#wpuf-category select {
+    display: block;
+    margin: 0 0 5px 0;
+}
+
+#wpuf-category .wpuf-category-checklist label {
+    font-weight: normal;
+    color: #333333
+}
+
+#wpuf-category ul.wpuf-category-checklist {
+    margin: 0;
+    list-style: none;
+}
+
+#wpuf-category ul.wpuf-children {
+	padding-left: 15px;
+}
+
+#wpuf .wpuf-loading {
+    height: 16px;
+    width: 16px;
+    background: url('../images/wpspin_light.gif') no-repeat;
+    padding: 0;
+    margin: 5px 10px;
+    right: -40px;
+    top: 0;
+    float: left;
+}
+
+#wpuf-cat-lvl1 {
+	padding-left: 15px;
+}
+
+#wpuf-cat-lvl2 {
+	padding-left: 30px;
+}
+
+#wpuf-cat-lvl3 {
+	padding-left: 45px;
+}
+
+#wpuf-cat-lvl4 {
+	padding-left: 60px;
+}
+
+#wpuf-cat-lvl5 {
+	padding-left: 75px;
+}
+
+/* Edit Profile CSS */
+/* ---------------- */
+
+#wpuf  .wpuf-profile table {
+    border: none;
+}
+
+#wpuf  .wpuf-profile legend {
+    border: 1px solid #eee;
+    padding: 5px 10px;
+}
+
+#wpuf  .wpuf-profile th,
+#wpuf  .wpuf-profile td {
+    vertical-align: top;
+    border-top: 1px solid #eee;
+    border: none;
+}
+
+#wpuf  .wpuf-profile input,
+#wpuf  .wpuf-profile textarea {
+    border: 1px solid #CCCCCC;
+    margin: 0;
+    padding: 5px;
+}
+
+#wpuf .wpuf-profile h3 {
+    margin: 0;
+}
+
+#wpuf .wpuf-profile table {
+    margin: 0 0 5px 0;
+}
+
+#wpuf-pass-strength-result {
+    border-radius: 6px 6px 6px 6px;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin: 12px 5px 5px 1px;
+    padding: 7px;
+    text-align: center;
+    width: 248px;
+}
+#wpuf-pass-strength-result.good {
+    background-color: #FFEC8B;
+    border-color: #FFCC00 !important;
+}
+#wpuf-pass-strength-result {
+    background-color: #EEEEEE;
+    border-color: #DDDDDD !important;
+}
+#wpuf-pass-strength-result.bad {
+    background-color: #FFB78C;
+    border-color: #FF853C !important;
+}
+#wpuf-pass-strength-result.strong {
+    background-color: #C3FF88;
+    border-color: #8DFF1C !important;
+}
+#wpuf-pass-strength-result.short {
+    background-color: #FFA0A0;
+    border-color: #F04040 !important;
+}
+
+/* Dashboard CSS */
+/* ------------- */
+
+#wpuf .wpuf-post-count {
+    border: 1px solid #E7E7E7;
+    margin: 5px 0;
+    padding: 5px;
+}
+
+#wpuf .wpuf-post-count span {
+    font-weight: bold;
+}
+
+/* author info */
+
+#wpuf .wpuf-author {
+    clear: both;
+    margin: 10px 0;
+}
+#wpuf .wpuf-author h3{
+    margin: 0 !important;
+    background: #CFCFCF;
+    text-align: left;
+    padding: 3px 10px;
+}
+#wpuf .wpuf-author-inside {
+    background: none repeat scroll 0 0 #F0F0F0;
+    border-bottom: 2px solid #DDDDDD;
+    height: 90px;
+    padding-left: 10px;
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+#wpuf .wpuf-author-inside .wpuf-user-image {
+    float: left;
+    padding-right: 15px;
+}
+#wpuf .wpuf-author-body p {
+    margin-bottom: 10px !important;
+}
+
+#wpuf .wpuf-author-body p.wpuf-user-name a {
+    color: #335160;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#wpuf .wpuf-author-inside p.wpuf-author-info {
+    padding-top: 8px;
+}
+
+/* pagination */
+
+.wpuf-pagination {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.wpuf-pagination div.pagination{
+    text-align:center;
+    padding:7px;
+    margin:3px;
+}
+
+.wpuf-pagination .page-numbers{
+    padding:2px 8px;
+    margin:2px;
+    border:1px solid #4A5154;
+    text-decoration:none;
+    color:#4A5154;
+    background: #fff;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.wpuf-pagination .page-numbers:hover,
+.wpuf-pagination .page-numbers:active{
+    border:1px solid #4A5154;
+    background-color:#4A5154;
+    color:#fff;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.wpuf-pagination .page-numbers.current{
+    padding:2px 8px;
+    margin:2px;
+    border:1px solid #4A5154;
+    font-weight:bold;
+    background-color:#4A5154;
+    color:#FFF;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+/* Subscriptions */
+/* ------------- */
+
+.wpuf-sub-info {
+    padding: 0;
+    margin: 10px 5px;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.wpuf-sub-info h3{
+    margin: 0 0 5px 0 !important;
+    background: green;
+    color: #fff !important;
+    padding: 3px 10px !important;
+    font-weight: bold;
+}
+
+.wpuf-sub-info .wpuf-sub-info-text{
+    padding: 5px 10px;
+}
+
+
+ul.wpuf-packs {
+    overflow: hidden;
+    margin: 35px 0 15px;
+}
+
+ul.wpuf-packs li {
+    background: #EEEEEE;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    list-style: none outside none;
+    margin: 25px 25px 10px 0;
+    padding: 5px;
+    position: relative;
+    width: 200px;
+}
+
+ul.wpuf-packs h3 {
+    padding: 10px !important;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+ul.wpuf-packs p {
+    padding: 0 10px;
+    margin-bottom: 8px;
+}
+
+.wpuf-packs .wpuf-packs-cost {
+    background: red;
+    border-radius: 30px 30px 30px 30px;
+    color: #FFFFFF;
+    margin: -16px -12px 0 0;
+    padding: 10px 8px 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* Other CSS */
+/* --------- */
+
+/* wpuf_table */
+
+table.wpuf-table {
+    border: 1px solid #E7E7E7;
+    margin: 0 opx 10px 0;
+    text-align: left;
+    width: 100%;
+}
+
+table.wpuf-table thead th, table.wpuf-table th {
+    color: #888888;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    padding: 9px 24px;
+}
+
+table.wpuf-table td {
+    border-top: 1px solid #E7E7E7;
+    padding: 6px 24px;
+}
+
+
